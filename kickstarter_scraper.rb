@@ -26,5 +26,4 @@ def create_project_hash
   end
 end
 
-asdf = create_project_hash
-puts asdf
+create_project_hash
