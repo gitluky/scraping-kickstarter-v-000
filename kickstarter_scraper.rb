@@ -27,4 +27,7 @@ def create_project_hash
   projects
 end
 
-puts create_project_hash
+create_project_hash.projects.each do |k,v|
+  puts "Project: #{k}"
+  puts "Info: #{v}"
+end
