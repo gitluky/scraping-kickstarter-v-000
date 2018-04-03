@@ -18,11 +18,11 @@ def create_project_hash
   projects = {}
   kickstarter.css('li.project.grid_4').each do |project|
     projects[project] = {}
-    projects[project] = project.css("h2.bbcard_name strong a").text
-    projects[project]= project.css('div.project-thumbnail a img').attribute('src').value
-    projects[project] = project.css('.bbcard_blurb').text
-    projects[project] = project.css('.project-meta span.location-name').text
-    projects[project] = project.css('.first.funded strong').text.gsub('%','').to_i
+    projects[project][:title] = project.css("h2.bbcard_name strong a").text
+    projects[project][:image_link]= project.css('div.project-thumbnail a img').attribute('src').value
+    projects[project][:description] = project.css('.bbcard_blurb').text
+    projects[project][:location] = project.css('.project-meta span.location-name').text
+    projects[project][:funded] = project.css('.first.funded strong').text.gsub('%','').to_i
   end
   projects
 end
