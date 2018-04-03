@@ -22,7 +22,7 @@ def create_project_hash
     project.img_link = project_info_info.css('div.project-thumbnail a img').attribute('src').value
     project.description = project_info.css('.bbcard_blurb').text
     project.location = project_info.css('.project-meta li a').text
-    project.funded = project_info.css('.first.funded strong').text.to_i
+    project.funded = project_info.css('.first.funded strong').text.gsub('%','').to_i
   end
 end
 
