@@ -15,7 +15,7 @@ def create_project_hash
 #location: projects.css('.project-meta li a').text
 #funded: projects.css('.first.funded strong').text.to_i
   projects = {}
-  kickstarter.css('li.project.grid_4').each.tap do |project|
+  kickstarter.css('li.project.grid_4').each do |project|
     title = project.css("h2.bbcard_name strong a").text
     projects[title.to_sym] = {
       :image_link => project.css('div.project-thumbnail a img').attribute('src').value,
