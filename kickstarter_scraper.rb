@@ -29,5 +29,8 @@ end
 
 create_project_hash.each do |k,v|
   puts "Project: #{k}"
-  puts "Info: #{v}"
+  puts "Image Link: #{v[:image_link]}"
+  puts "Description: #{v[:description]}"
+  puts "Location: #{v[:location]}"
+  puts "Funded: #{v[:funded]}"
 end
