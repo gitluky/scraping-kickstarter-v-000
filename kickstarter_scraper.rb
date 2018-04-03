@@ -24,6 +24,7 @@ def create_project_hash
       :funded => project.css('.first.funded strong').text.gsub('%','').to_i
     }
   end
+  projects
 end
 
 create_project_hash
