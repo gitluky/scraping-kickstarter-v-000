@@ -23,6 +23,7 @@ def create_project_hash
     project.description = project_info.css('.bbcard_blurb').text
     project.location = project_info.css('.project-meta li a').text
     project.funded = project_info.css('.first.funded strong').text.to_i
+  end
 end
 
 create_project_hash
