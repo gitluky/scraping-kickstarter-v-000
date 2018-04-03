@@ -15,15 +15,16 @@ def create_project_hash
 #description: projects.css('.bbcard_blurb').text
 #location: projects.css('.project-meta li a').text
 #funded: projects.css('.first.funded strong').text.to_i
-
-  projects.each do |project_info|
-    project = Project.New
-    project.title = project_info.css("h2.bbcard_name strong a").text
-    project.img_link = project_info_info.css('div.project-thumbnail a img').attribute('src').value
-    project.description = project_info.css('.bbcard_blurb').text
-    project.location = project_info.css('.project-meta span.location-name').text
-    project.funded = project_info.css('.first.funded strong').text.gsub('%','').to_i
+  projects = {}
+  kickstarter.css('li.project.grid_4').each do |project|
+    projects[project] = {}
+    projects[project]itle = project_info.css("h2.bbcard_name strong a").text
+    projects[project]= project_info_info.css('div.project-thumbnail a img').attribute('src').value
+    projects[project] = project_info.css('.bbcard_blurb').text
+    projects[project] = project_info.css('.project-meta span.location-name').text
+    projects[project] = project_info.css('.first.funded strong').text.gsub('%','').to_i
   end
+  projects
 end
 
 create_project_hash
